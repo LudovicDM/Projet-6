@@ -24,7 +24,7 @@ function categoriesRecup() {
         });
 }
 
-//****************** ARRAY ==> INSERTION IMG ****************//
+//****************** ARRAY ==> INSERTION IMG HTML****************//
 
 function insertWorks(workArray) {
     gallery.innerHTML = "";
@@ -64,7 +64,7 @@ function categoriesFilter() {
     });
 }
 
-/****************************************MODAL**************************************/
+/****************************************LOGIN PAGE AND MODAL**************************************/
 
 const editButton = document.querySelectorAll(".edit-button");
 const modal = document.querySelector("dialog");
@@ -74,22 +74,11 @@ const filterName = document.querySelector(".filter_name");
 const editBanner = document.querySelector(".edit-banner");
 const login = document.querySelector(".login");
 
-/******************OPEN/CLOSE MODAL*************************/
 
-function openCloseModal() {
-    editButton[0].addEventListener("click", () => {
-        modal.showModal();
-    });
-}
-window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-        modal.close();
-    }
-});
+/************************************DISPLAY LOGIN PAGE******************************************/
 
-/*******************************DISPLAY and FUNCTION MODAL****************************/
 
-/*************************************DISPLAY****************************************/
+/****************************DISPLAY LOGIN***************************/
 
 let token = localStorage.getItem("Token");
 
@@ -106,6 +95,25 @@ if (token) {
         window.location.href = "login.html";
     });
 }
+
+/***********************DISPLAY and FUNCTION MODAL************************/
+
+
+/******************OPEN/CLOSE MODAL*************************/
+
+function openCloseModal() {
+    editButton[0].addEventListener("click", () => {
+        modal.showModal();
+    });
+}
+window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.close();
+    }
+});
+
+
+
 
 /***********************************Delete work*******************************/
 function displayModal(workArray) {
@@ -144,14 +152,7 @@ function displayModal(workArray) {
     });
 }
 
-/*********************add categorie*************************/
-function categorieChoice() {
-    let optionHTML = "";
-    categories.forEach((category) => {
-        optionHTML += `<option value="${category.id}">${category.name}</option>`;
-    });
-    return optionHTML;
-}
+
 
 /*******************Windows add project***************************/
 
@@ -226,11 +227,14 @@ function displayAddPicModal() {
             reader.readAsDataURL(file);
         });
 
-        /******************************ADD WORK**************************/
+    
 
         createNewWork();
     });
 }
+
+    /******************************CREATE WORK**************************/
+
 function createNewWork() {
     const titleInput = document.getElementById("titre");
     const categorieInput = document.getElementById("categorie");
@@ -272,6 +276,17 @@ function createNewWork() {
         });
     });
 }
+
+
+/*********************add categorie*************************/
+function categorieChoice() {
+    let optionHTML = "";
+    categories.forEach((category) => {
+        optionHTML += `<option value="${category.id}">${category.name}</option>`;
+    });
+    return optionHTML;
+}
+
 //*************************APPEL FUNCTION ****************/
 recupWorks();
 categoriesRecup();
