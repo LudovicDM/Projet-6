@@ -74,10 +74,6 @@ const filterName = document.querySelector(".filter_name");
 const editBanner = document.querySelector(".edit-banner");
 const login = document.querySelector(".login");
 
-
-/************************************DISPLAY LOGIN PAGE******************************************/
-
-
 /****************************DISPLAY LOGIN***************************/
 
 let token = localStorage.getItem("Token");
@@ -98,7 +94,6 @@ if (token) {
 
 /***********************DISPLAY and FUNCTION MODAL************************/
 
-
 /******************OPEN/CLOSE MODAL*************************/
 
 function openCloseModal() {
@@ -111,9 +106,6 @@ window.addEventListener("click", (e) => {
         modal.close();
     }
 });
-
-
-
 
 /***********************************Delete work*******************************/
 function displayModal(workArray) {
@@ -151,8 +143,6 @@ function displayModal(workArray) {
         });
     });
 }
-
-
 
 /*******************Windows add project***************************/
 
@@ -227,13 +217,11 @@ function displayAddPicModal() {
             reader.readAsDataURL(file);
         });
 
-    
-
         createNewWork();
     });
 }
 
-    /******************************CREATE WORK**************************/
+/******************************CREATE WORK**************************/
 
 function createNewWork() {
     const titleInput = document.getElementById("titre");
@@ -276,7 +264,6 @@ function createNewWork() {
         });
     });
 }
-
 
 /*********************add categorie*************************/
 function categorieChoice() {
